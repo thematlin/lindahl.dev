@@ -1,0 +1,16 @@
+body {
+    background-color: #4c4c4c;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.card {
+    margin: 0 20px;
+}

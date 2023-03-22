@@ -14,12 +14,13 @@ jobs:
         with:
           node-version: 18
       - run: npm ci --legacy-peer-deps
-      - run: npm run build
+      - run: BUILD_PATH=dist/html npm run build
+      - run: cp Dockerfile ./dist/Dockerfile
       - name: Rsync to remote server
         uses: burnett01/rsync-deployments@5.2.1
         with:
           switches: -avzr --delete
-          path: build/
+          path: dist/
           remote_path: ${{ secrets.DEPLOY_PATH }}
           remote_host: ${{ secrets.DEPLOY_HOST }}
           remote_port: ${{ secrets.DEPLOY_PORT }}
